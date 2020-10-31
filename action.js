@@ -11,6 +11,9 @@ e inserirlo nell'array del punto precedente.
 */
 
 $(document).ready(function () {
+
+  // --------------------- PART 1 - STUDENT OBJECT ---------------------
+
   // Creating an object to define the student details
   var student = {
     'name' : 'Alice',
@@ -26,6 +29,9 @@ $(document).ready(function () {
     console.log(key + ': ' + student[key]);
   }
   console.log('');
+
+
+  // ---------- PART 2 - STUDENTS CLASS (ARRAY OF OBJECTS) ----------
 
   // Creating an array of objects 'student'
   var poets_class = [
@@ -86,4 +92,30 @@ $(document).ready(function () {
     }
     console.log('');
   }
+
+
+  // ---------- PART 3 - NEW STUDENT (to be added to the class) ----------
+
+  // Entering inputs from the user: new student details
+  console.log('***** NEW STUDENT DETAILS *****');
+  var new_student_name = prompt('Please enter the name of the new student.');
+  var new_student_surname = prompt('Now enter his/her surname.');
+  var new_student_age = prompt('Finally enter his/her current age.');
+  console.log('Name: ' + new_student_name);
+  console.log('Surname: ' + new_student_surname);
+  console.log('Age: ' + new_student_age);
+
+  // Creating a new object with the new student details
+  var new_student = {
+    'name' : new_student_name,
+    'surname' : new_student_surname,
+    'age' : new_student_age,
+  }
+  console.log('The new student details are: ' , new_student);
+  console.log('');
+
+  // Adding the new student details to the poets class array
+  poets_class.push(new_student);
+  console.log('The new poets class updated with the new student details is:');
+  console.log(poets_class);
 });
