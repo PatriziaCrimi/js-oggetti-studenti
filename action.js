@@ -10,8 +10,6 @@ Creare con questi dati un nuovo oggetto
 e inserirlo nell'array del punto precedente.
 */
 
-// Variables and constants initialization
-
 $(document).ready(function () {
   // Creating an object to define the student details
   var student = {
@@ -68,9 +66,24 @@ $(document).ready(function () {
     },
   ];
   // FOR cycle to scan the entire array of students
-  console.log('The class of students (array of objects) is:');
+  console.log('The class of poets (array of objects) is:');
   for (var i = 0; i < poets_class.length; i++) {
     console.log(poets_class[i]);
   }
   console.log('');
+
+  // FOR IN cycle to print only name and surname of each poet student
+  console.log('*** POET STUDENTS DETAILS: NAMES & SURNAMES ***');
+  console.log('');
+  // Scanning the whole students array
+  for (var j = 0; j < poets_class.length; j++) {
+    // Scanning the objects (students details)
+    for (var key_poet in poets_class[j]) {
+      // Checking if the key is 'age' to not print it on screen
+      if (key_poet !== 'age') {
+        console.log(key_poet + ': ' + poets_class[j][key_poet]);
+      }
+    }
+    console.log('');
+  }
 });
