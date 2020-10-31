@@ -93,6 +93,22 @@ $(document).ready(function () {
     console.log('');
   }
 
+  // ------------------------ OUTPUT IN THE DOM ------------------------
+
+  // Scanning the whole students array
+  for (j = 0; j < poets_class.length; j++) {
+    $('#poets-class').append('<div class="clear-fix"><div class="box-left"></div><div class="box-right"></div></div>');
+    // Scanning the objects (students details)
+    for (key_poet in poets_class[j]) {
+      // Checking if the key is 'age' to print a <small>
+      if (key_poet === 'age') {
+        $('#poets-class').append('<div><small>' + key_poet + ': '+ poets_class[j][key_poet] + '</small></div> ');
+      } else {
+        $('#poets-class').append('<div><span>' + key_poet + '</span>: ' + '<span>' +  poets_class[j][key_poet] + '</span></div> ');
+      }
+    }
+  }
+
 
   // ---------- PART 3 - NEW STUDENT (to be added to the class) ----------
 
@@ -100,7 +116,12 @@ $(document).ready(function () {
   console.log('***** NEW STUDENT DETAILS *****');
   var new_student_name = prompt('Please enter the name of the new student.');
   var new_student_surname = prompt('Now enter his/her surname.');
-  var new_student_age = prompt('Finally enter his/her current age.');
+  var new_student_age = parseInt(prompt('Finally enter his/her current age.'));
+  // Check that age is a number
+  while(isNaN(new_student_age)) {
+    new_student_age = parseInt(prompt('ERROR. The value you entered is not a number. Please enter the current age of the new student.'));
+  }
+  // Output in console
   console.log('Name: ' + new_student_name);
   console.log('Surname: ' + new_student_surname);
   console.log('Age: ' + new_student_age);
@@ -118,4 +139,24 @@ $(document).ready(function () {
   poets_class.push(new_student);
   console.log('The new poets class updated with the new student details is:');
   console.log(poets_class);
+
+
+  // ------------- NEW STUDENT DETAILS - OUTPUT IN THE DOM -------------
+
+  var new_student_index = poets_class.length - 1;
+  // Scanning the whole students array
+  for (j = 0; j < poets_class.length; j++) {
+    if (j === new_student_index) {
+      $('#new-student').append('<h3>New Student</h3>')
+      // Scanning the object (new students details)
+      for (key_poet in poets_class[j]) {
+        // Checking if the key is 'age' to print a <small>
+        if (key_poet === 'age') {
+          $('#new-student').append('<div><small>' + key_poet + ': '+ poets_class[j][key_poet] + '</small></div> ');
+        } else {
+          $('#new-student').append('<div><span>' + key_poet + '</span>: ' + '<span>' +  poets_class[j][key_poet] + '</span></div> ');
+        }
+      }
+    }
+  }
 });
