@@ -78,11 +78,13 @@ $(document).ready(function () {
   }
   console.log('');
 
-  // FOR IN cycle to print only name and surname of each poet student
+  // Printing in console only name and surname of each poet student
   console.log('*** POET STUDENTS DETAILS: NAMES & SURNAMES ***');
   console.log('');
   // Scanning the whole students array
   for (var j = 0; j < poets_class.length; j++) {
+
+    // ************* SOLUTION 1 - FOR-IN CYCLE *************
     // Scanning the objects (students details)
     for (var key_poet in poets_class[j]) {
       // Checking if the key is 'age' to not print it on screen
@@ -90,6 +92,13 @@ $(document).ready(function () {
         console.log(key_poet + ': ' + poets_class[j][key_poet]);
       }
     }
+
+    /*
+    // ************* SOLUTION 2 - ACCESSING THE KEY DIRECTLY *************
+    var current_student = poets_class[j];
+    console.log(current_student.name + ' ' + current_student.surname);
+    // console.log(current_student['name'] + ' ' + current_student['surname']);
+    */
     console.log('');
   }
 
